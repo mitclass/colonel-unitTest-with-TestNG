@@ -1,5 +1,4 @@
 package UnitTestCases;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,10 +7,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 public class LoginFunctionalityTest {
     WebDriver driver;
-
     @BeforeTest
     void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -20,7 +17,6 @@ public class LoginFunctionalityTest {
         driver.manage().window().maximize();
         System.out.println("Opens browser!");
     }
-
     @Test
     void testLogin(){
         driver.findElement(By.id("email")).sendKeys("thereamsglobal@gmail.com");
@@ -30,17 +26,12 @@ public class LoginFunctionalityTest {
         Assert.assertEquals("User cannot login with even correct credentials", "User can login with correct credentials");
         System.out.println("User can't register as the click button is not functioning well!");
     }
-
-
     @AfterTest
     void tearDown(){
-
-        //driver.close();
-        //driver.quit();
-
+        driver.close();
+        driver.quit();
 
         System.out.println("User cannot login");
     }
-
 }
 
