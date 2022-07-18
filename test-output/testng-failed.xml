@@ -10,6 +10,13 @@
           <include name="testRegister"/>
         </methods>
       </class> <!-- UnitTestCases.TestRegistrationFeature -->
+      <class name="UnitTestCases.LoginFunctionalityTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="testLogin"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- UnitTestCases.LoginFunctionalityTest -->
     </classes>
   </test> <!-- C:/Users/theda/Desktop/ColonelTestProject(failed) -->
 </suite> <!-- Failed suite [All Test Suite] -->

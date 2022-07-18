@@ -6,6 +6,12 @@
             <class name="UnitTestCases.TestRegistrationFeature">
                 <methods>
                     <include name="testRegister"/>
+                    <include name="testLogin"/>
+                </methods>
+            </class>
+            <class name="UnitTestCases.LoginFunctionalityTest">
+                <methods>
+                    <include name="testLogin"/>
                 </methods>
             </class>
         </classes>
