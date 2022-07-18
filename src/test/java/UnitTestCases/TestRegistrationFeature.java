@@ -18,6 +18,7 @@ public class TestRegistrationFeature {
         driver = new ChromeDriver();
         driver.get("https://boisterous-squirrel-08cbc5.netlify.app/#/register");
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         System.out.println("Opens browser!");
     }
@@ -27,7 +28,7 @@ public class TestRegistrationFeature {
         driver.findElement(By.name("lastName")).sendKeys("Blake");
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("thedreamsglobal@gmail.com");
         driver.findElement(By.cssSelector("#password")).sendKeys("admin123");
-        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
         Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/form/div[3]/button")).click();
 
