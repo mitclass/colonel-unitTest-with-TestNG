@@ -3,6 +3,7 @@ package end2endTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -36,11 +37,10 @@ public class End2EndTest {
         System.out.println("User can't register as the click button is not functioning well!");
     }
     @Test(priority = 3, groups = {"regression"})
-    void printTitle(){
+    void homaPageTitle(){
         String actual_title = driver.getTitle();
-        System.out.println("The title of the application is: "+ actual_title);
-
-        Assert.assertEquals(actual_title, "Colonel Kernel's Farmers Market");
+        //System.out.println("The title of the application is: "+ actual_title);
+        Assert.assertEquals(actual_title, "Colonel Kernel's Farmers Market", "Title not matched");
     }
 
     @Test(priority = 2, groups = {"regression"})
@@ -59,9 +59,10 @@ public class End2EndTest {
         System.out.println("Successfully logout!");
     }
 
-    @Test(priority = 5, groups = {"sanity", "regression"}, enabled = false)
-    void testLogoIsPresent(){
-
+    @Test(priority = 5, groups = {"sanity", "regression"})
+    void logoTest(){
+        WebElement logo = driver.findElement(By.xpath("//*[@id=\"root\"]/nav/div[1]/div[1]/img"));
+        Assert.assertTrue(logo.isDisplayed(), "Logo is not displayed on the home page");
         System.out.println("The logo is present!!!");
     }
 
