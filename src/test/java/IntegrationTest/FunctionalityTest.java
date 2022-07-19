@@ -20,11 +20,11 @@ public class FunctionalityTest {
         driver = new ChromeDriver();
         driver.get("https://boisterous-squirrel-08cbc5.netlify.app/#/register");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+       // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         System.out.println("Opens browser!");
     }
-    @Test
+    @Test(priority = 1)
     void testRegister() throws InterruptedException {
         driver.findElement(By.id("firstName")).sendKeys("Richard");
         driver.findElement(By.name("lastName")).sendKeys("Blake");
@@ -37,12 +37,34 @@ public class FunctionalityTest {
         Assert.assertEquals("Register button not clickable", "button should be clickable");
         System.out.println("User can't register as the click button is not functioning well!");
     }
-    @Test
+    @Test(priority = 3)
     void printTitle(){
         String actual_title = driver.getTitle();
         System.out.println("The title of the application is: "+ actual_title);
 
         Assert.assertEquals(actual_title, "Colonel Kernel's Farmers Market");
+    }
+
+    @Test(priority = 2)
+    void testLogin(){
+        driver.findElement(By.id("email")).sendKeys("thereamsglobal@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("admin123");
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/form/div[3]/button")).click();
+
+        Assert.assertEquals("User cannot login with even correct credentials", "User can login with correct credentials");
+        System.out.println("User can't register as the click button is not functioning well!");
+    }
+
+    @Test(priority = 4, enabled = false)
+    void testLogout(){
+
+        System.out.println("Successfully logout!");
+    }
+
+    @Test(priority = 5, enabled = false)
+    void testLogoIsPresent(){
+
+        System.out.println("The logo is present!!!");
     }
 
     @AfterTest
