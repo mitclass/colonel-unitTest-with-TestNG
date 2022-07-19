@@ -10,7 +10,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class LogoTest {
+public class HomePageTitle {
 
     WebDriver driver;
     @BeforeTest
@@ -25,10 +25,10 @@ public class LogoTest {
     }
 
     @Test(groups = {"unit"})
-    void logoTest(){
-        WebElement logo = driver.findElement(By.xpath("//*[@id=\"root\"]/nav/div[1]/div[1]/img"));
-        Assert.assertTrue(logo.isDisplayed(), "Logo is not displayed on the home page");
-
+    void homaPageTitle(){
+        String actual_title = driver.getTitle();
+        //System.out.println("The title of the application is: "+ actual_title);
+        Assert.assertEquals(actual_title, "Colonel Kernel's Farmers Market", "Title not matched");
     }
 
     @AfterTest
@@ -38,6 +38,6 @@ public class LogoTest {
         driver.quit();
 
 
-        System.out.println("Logo test completed Successfully!");
+        System.out.println("End2End test completed Successfully!");
     }
 }
