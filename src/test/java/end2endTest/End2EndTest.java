@@ -73,6 +73,6 @@ public class End2EndTest {
         driver.quit();
 
 
-        System.out.println("The feature is not stable as click/ register button is not clickable yet!");
+        System.out.println("End2End test completed Successfully!");
     }
 }
