@@ -24,7 +24,7 @@ public class FunctionalityTest {
 
         System.out.println("Opens browser!");
     }
-    @Test(priority = 1)
+    @Test(priority = 1, groups = { "regression"})
     void testRegister() throws InterruptedException {
         driver.findElement(By.id("firstName")).sendKeys("Richard");
         driver.findElement(By.name("lastName")).sendKeys("Blake");
@@ -37,7 +37,7 @@ public class FunctionalityTest {
         Assert.assertEquals("Register button not clickable", "button should be clickable");
         System.out.println("User can't register as the click button is not functioning well!");
     }
-    @Test(priority = 3)
+    @Test(priority = 3, groups = {"regression"})
     void printTitle(){
         String actual_title = driver.getTitle();
         System.out.println("The title of the application is: "+ actual_title);
@@ -45,7 +45,7 @@ public class FunctionalityTest {
         Assert.assertEquals(actual_title, "Colonel Kernel's Farmers Market");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2, groups = {"regression"})
     void testLogin(){
         driver.findElement(By.id("email")).sendKeys("thereamsglobal@gmail.com");
         driver.findElement(By.name("password")).sendKeys("admin123");
@@ -55,13 +55,13 @@ public class FunctionalityTest {
         System.out.println("User can't register as the click button is not functioning well!");
     }
 
-    @Test(priority = 4, enabled = false)
+    @Test(priority = 4, groups = {"sanity", "regression"}, enabled = false)
     void testLogout(){
 
         System.out.println("Successfully logout!");
     }
 
-    @Test(priority = 5, enabled = false)
+    @Test(priority = 5, groups = {"sanity", "regression"}, enabled = false)
     void testLogoIsPresent(){
 
         System.out.println("The logo is present!!!");
